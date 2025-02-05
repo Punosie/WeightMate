@@ -43,8 +43,8 @@ This is the backend for the Family Weight Tracker app, built using Node.js, Expr
 ### 1. Clone the repo
 
 ```bash
-git clone https://github.com/your-repo.git
-cd your-repo/Backend
+git clone git@github.com:Punosie/WeightMate.git
+cd WeightMate/Backend
 ```
 
 ### 2. Install Dependencies
