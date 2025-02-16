@@ -8,6 +8,7 @@ import { Provider as ReduxProvider } from "react-redux";
 import App from "./App.jsx";
 import AuthListener from "./redux/AuthListener";
 
+
 createRoot(document.getElementById("root")).render(
     <StrictMode>
         <ReduxProvider store={store}>
