@@ -1,18 +1,11 @@
-import { Button, HStack } from '@chakra-ui/react'
-import { useNavigate } from 'react-router';
+import {Box } from '@chakra-ui/react'
+import Navbar from './components/Navbar';
 
 const App = () => {
-
-  const navigate = useNavigate()
-  const goToLogin = () => {
-    navigate('/login')
-  }
-
   return (
-    <HStack>
-      <Button colorPalette='teal' variant="outline" onClick={goToLogin}>Click me</Button>
-      <Button colorPalette='pink' variant="outline" onClick={goToLogin} >Click me</Button>
-    </HStack>
+    <Box>
+      <Navbar />
+    </Box>
   )
 }
 
