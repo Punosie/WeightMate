@@ -2,13 +2,17 @@ import { Box, Heading, Text, Stack, VStack, Button } from "@chakra-ui/react";
 import DatePickerComponent from "../components/DatePicker";
 import Form from "../components/Form";
 import { useState } from "react";
+import { useSelector } from "react-redux";
 import { format } from "date-fns";
+import axios from "axios";
+import { toaster } from "@/components/ui/toaster";
 
 const Tracker = () => {
 
   const [weight, setWeight] = useState("");
   const [selectedDate, setSelectedDate] = useState(new Date());
-  const [error, setError] = useState(""); // State for error message
+  const user = useSelector((state) => state.auth.user);
+
 
   const handleWeightChange = (e) => {
     setWeight(e.target.value);
@@ -18,32 +22,57 @@ const Tracker = () => {
     setSelectedDate(date);
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-
-    // Validate weight input
+  
     if (!weight.trim()) {
-      setError("Weight cannot be empty.");
+      toaster.create({
+        title: "Error",
+        description: "Weight cannot be empty.",
+        type: "error",
+      });
+
       return;
     }
-
-    // Check if the weight contains any non-numeric characters (except for . for decimal points)
+  
     if (isNaN(weight) || parseFloat(weight) <= 0) {
-      setError("Please enter a valid positive number.");
+      toaster.create({
+        title: "Error",
+        description: "Please enter a valid positive number.",
+        type: "error",
+      });
       return;
     }
 
-    // Clear error if everything is valid
-    setError("");
-
-    // Format the selected date as "dd/MM/yyyy"
-    const formattedDate = format(selectedDate, "dd/MM/yyyy");
-
+    const formattedDate = format(selectedDate, "yyyy-MM-dd"); // Use correct format
+    const uid = user.uid; // Make sure uid is correctly assigned
+  
     console.log("Weight:", weight);
     console.log("Date:", formattedDate);
+    console.log("Uid:", uid);
+  
+    try {
+      const response = await axios.post(`http://localhost:5000/api/weight/add/${uid}`, {
+        weight: parseFloat(weight),
+        date: formattedDate
+      });
 
-    // You can proceed with any additional logic for submission, like sending the data to a server
+      console.log("Response:", response.data);
+      toaster.create({
+        title: "Success",
+        description: "Weight added successfully!",
+        type: "success",
+      });
+    } catch (err) {
+      console.error("Error submitting weight:", err);
+      toaster.create({
+        title: "Error",
+        description: err.response?.data?.message || "Something went wrong",
+        type: "error",
+      });
+    }
   };
+  
 
   return (
     <Box fontFamily="Orbitron Variable" mt={5} maxW="lg" mx="auto" p={6} bg="bg.subtle" borderRadius="lg" boxShadow="lg">
@@ -53,9 +82,6 @@ const Tracker = () => {
         </Heading>
 
         <Form label="Enter Weight" placeHolder="Weight" value={weight} onChange={handleWeightChange} />
-
-        {/* Show error message */}
-        {error && <Text color="red.500" fontSize="sm">{error}</Text>}
 
         <Stack spacing={2}>
           <Text fontSize="lg" fontWeight="semibold" color="white">

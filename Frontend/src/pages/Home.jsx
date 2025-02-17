@@ -68,9 +68,6 @@ const Home = () => {
         <Text fontSize="md" color="gray.600" mt={2}>
           Join WeightMate and take control of your health.
         </Text>
-        <Link href="/signup">
-          <Button mt={4} colorPalette="yellow" size="lg" variant="outline">Join Now</Button>
-        </Link>
       </Box>
     </Container>
   );

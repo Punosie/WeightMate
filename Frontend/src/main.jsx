@@ -9,12 +9,15 @@ import App from "./App.jsx";
 import AuthListener from "./redux/AuthListener";
 import system from "./theme/theme";
 import Tracker from "./pages/Tracker";
+import { Toaster } from "@/components/ui/toaster"
+
 
 createRoot(document.getElementById("root")).render(
     <StrictMode>
         <ReduxProvider store={store}>
                 <Provider>
                     <AuthListener />
+                    <Toaster />
                     <BrowserRouter>
                         <Routes>
                             <Route path="/" element={<App />} />
