@@ -1,0 +1,75 @@
+/* General styles */
+.custom-datepicker-input {
+  width: 100%;
+  padding: 1rem;  /* Uses rem for better scalability */
+  font-size: 1rem;  /* Using rem for font-size */
+  border: 1px solid #2b2b2b;
+  border-radius: 0.3125rem;  /* Equivalent to 5px */
+  outline: none;
+  transition: border-color 0.3s ease;
+  font-family: "Orbitron", sans-serif;
+  box-sizing: border-box;
+}
+
+.react-datepicker-wrapper {
+  width: 100%;
+}
+
+.react-datepicker {
+  width: 100%;
+  background-color: white;
+}
+
+.react-datepicker__header {
+  width: 100%;
+}
+
+/* Add focus effect on input */
+.custom-datepicker-input:focus {
+  border-color: #a89b22;
+  border: 0.125rem solid #ccc;  /* 2px in rem */
+}
+
+/* Custom calendar styling */
+.custom-datepicker-calendar {
+  border-radius: 0.3125rem;  /* 5px */
+  box-shadow: 0 0.3125rem 0.9375rem rgba(0, 0, 0, 0.2);  /* Adjusted for rem */
+}
+
+/* Customize the individual date cells */
+.react-datepicker__day {
+  border-radius: 0.25rem;  /* 4px */
+  transition: background-color 0.2s ease;
+}
+
+.react-datepicker__day:hover {
+  background-color: #a89b22;
+  color: white;
+}
+
+/* Style the selected date */
+.react-datepicker__day--selected {
+  background-color: #a89b22;
+  color: white;
+  border-radius: 50%;
+}
+
+/* Customize the month and year dropdown */
+.react-datepicker__header {
+  background-color: #a89b22;
+  color: white;
+  border-top-left-radius: 0.3125rem;  /* 5px */
+  border-top-right-radius: 0.3125rem;  /* 5px */
+}
+
+/* Style for the placeholder text */
+.react-datepicker__input-placeholder {
+  color: #888;
+}
+
+/* Ensure parent container allows full width */
+.custom-datepicker-container {
+  background-color: white;
+  width: 100%;
+  max-width: 100%;
+}

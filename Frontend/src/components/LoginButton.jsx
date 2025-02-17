@@ -9,7 +9,7 @@ const LoginButton = () => {
 
     const handleLogin = () => {
         doSignInWithGoogle()
-            .then(() => navigate("/"))
+            .then(() => navigate("/tracker"))
             .catch((error) => console.error("Login error:", error));
     };
 
