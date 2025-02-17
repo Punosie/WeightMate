@@ -8,7 +8,7 @@ import { Provider as ReduxProvider } from "react-redux";
 import App from "./App.jsx";
 import AuthListener from "./redux/AuthListener";
 import system from "./theme/theme";
-
+import Tracker from "./pages/Tracker";
 
 createRoot(document.getElementById("root")).render(
     <StrictMode>
@@ -18,6 +18,7 @@ createRoot(document.getElementById("root")).render(
                     <BrowserRouter>
                         <Routes>
                             <Route path="/" element={<App />} />
+                            <Route path="/tracker" element={<Tracker />} />
                         </Routes>
                     </BrowserRouter>
                 </Provider>
