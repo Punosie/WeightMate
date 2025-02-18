@@ -5,7 +5,7 @@ import Home from './pages/Home';
 
 const App = () => {
   return (
-    <Box fontFamily="Orbitron Variable"> 
+    <Box> 
       <Navbar />
       <Home  />
       <Footer />

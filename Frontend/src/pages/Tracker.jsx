@@ -75,9 +75,9 @@ const Tracker = () => {
   
 
   return (
-    <Box fontFamily="Orbitron Variable" mt={5} maxW="lg" mx="auto" p={6} bg="bg.subtle" borderRadius="lg" boxShadow="lg">
+    <Box mt={5} maxW="lg" mx="auto" p={6} bg="bg.subtle" borderRadius="lg" boxShadow="lg">
       <VStack spacing={6} align="stretch" gap={5}>
-        <Heading fontFamily="Orbitron Variable" size="2xl" textAlign="center" color="yellow">
+        <Heading size="2xl" textAlign="center" color="yellow">
           Weight Tracker
         </Heading>
 
