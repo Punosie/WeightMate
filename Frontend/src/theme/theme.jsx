@@ -1,19 +1,16 @@
-import { createSystem, defineConfig } from "@chakra-ui/react";
 import "@fontsource-variable/orbitron";
 import "@fontsource-variable/dynapuff";
+import { createSystem, defaultConfig } from "@chakra-ui/react"
 
-const config = defineConfig({
+const system = createSystem(defaultConfig, {
   theme: {
     tokens: {
-      fontFamilies: {
-        heading: {value: "Orbitron Variable, sans-serif",},
-        body: {value: "DynaPuff Variable, sans-serif",},
-        test: {value: "Orbitron Variable, sans-serif",},
+      fonts: {
+        heading: { value: "Orbitron Variable, DynaPuff Variable, Comic Sans " },
+        body: { value: "Orbitron Variable, DynaPuff Variable, Comic Sans " },
       },
     },
   },
-});
-
-const system = createSystem(config);
+})
 
 export default system;

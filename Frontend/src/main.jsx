@@ -7,10 +7,8 @@ import store from "./redux/store";
 import { Provider as ReduxProvider } from "react-redux";
 import App from "./App.jsx";
 import AuthListener from "./redux/AuthListener";
-import system from "./theme/theme";
 import Tracker from "./pages/Tracker";
 import { Toaster } from "@/components/ui/toaster"
-
 
 createRoot(document.getElementById("root")).render(
     <StrictMode>
