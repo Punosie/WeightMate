@@ -3,8 +3,8 @@ import { Field, Input } from "@chakra-ui/react"
 const Form = ({label, placeHolder, onChange}) => {
 
     return (
-        <Field.Root gap={4}>
-        <Field.Label fontSize="lg"  >
+        <Field.Root gap={4} >
+        <Field.Label fontSize="lg">
             <Field.RequiredIndicator />
             {label}
         </Field.Label>
