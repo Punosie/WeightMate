@@ -6,6 +6,8 @@ import { useSelector } from "react-redux";
 import { format } from "date-fns";
 import axios from "axios";
 import { toaster } from "@/components/ui/toaster";
+import { addWeight, getAllWeights, deleteAllWeights } from "@/services/weightService";
+import { compose } from "@reduxjs/toolkit";
 
 const TrackerInput = () => {
 
@@ -52,11 +54,7 @@ const TrackerInput = () => {
     console.log("Uid:", uid);
   
     try {
-      const response = await axios.post(`http://localhost:5000/api/weight/add/${uid}`, {
-        weight: parseFloat(weight),
-        date: formattedDate
-      });
-
+      const response = await addWeight( uid, weight, formattedDate);
       console.log("Response:", response.data);
       toaster.create({
         title: "Success",
@@ -75,9 +73,13 @@ const TrackerInput = () => {
   
   const handleDeleteAll = async (uid) => {
     try {
-      const response = await axios.delete(`http://localhost:5000/api/weight/deleteAll/${uid}`, {
-      })
+      const response = await deleteAllWeights(uid)
       console.log("Response:", response.data);
+      toaster.create({
+        title: "Success",
+        description: "All weights deleted successfully!",
+        type: "success",
+      });
     }catch(err){
       console.error("Error deleting weight:", err);
       toaster.create({
