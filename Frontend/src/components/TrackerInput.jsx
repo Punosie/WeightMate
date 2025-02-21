@@ -4,10 +4,8 @@ import Form from "./Form";
 import { useState } from "react";
 import { useSelector } from "react-redux";
 import { format } from "date-fns";
-import axios from "axios";
 import { toaster } from "@/components/ui/toaster";
-import { addWeight, getAllWeights, deleteAllWeights } from "@/services/weightService";
-import { compose } from "@reduxjs/toolkit";
+import { addWeight, deleteAllWeights } from "@/services/weightService";
 
 const TrackerInput = () => {
 
@@ -26,11 +24,20 @@ const TrackerInput = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-  
+    
+    if (!user){
+      toaster.create({
+        title: "Error",
+        description: "Please login to submit weight.",
+        type: "error",
+      });
+      return;
+    }
+
     if (!weight.trim()) {
       toaster.create({
         title: "Error",
-        description: "Weight cannot be empty.",
+        description: "Please enter a valid weight.",
         type: "error",
       });
 

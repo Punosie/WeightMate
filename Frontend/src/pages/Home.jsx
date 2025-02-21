@@ -1,7 +1,7 @@
 import Typing from '@/components/Typing';
 import { Box, Container, Heading, Text, VStack, Icon, Grid } from '@chakra-ui/react';
 import { FaWeight, FaWalking, FaUsers, FaChartLine } from 'react-icons/fa';
-
+import CountUp from 'react-countup';
 
 const Home = () => {
   return (
@@ -61,13 +61,26 @@ const Home = () => {
   </Grid>
 </Box>
 
+    {/* Countup */}
+{/* Countup Section */}
+<Box mt={16} w="full" textAlign="center">
+  <Heading size="2xl" mb={4}>Our Growing Community</Heading>
+  <VStack spacing={6}>
+    <Text fontSize="lg" color="gray.500">
+      Join thousands of users who are tracking their fitness journey with WeightMate.
+    </Text>
+    <Box p={3} borderRadius="full" boxShadow="md" bg="bg.subtle">
+      <Heading size="xl" color="pink.500">
+        <CountUp end={15000} duration={10} separator="," suffix="+ Members" />
+      </Heading>
+    </Box>
+  </VStack>
+</Box>
+
 
       {/* Call to Action */}
       <Box mt={16} textAlign="center">
-        <Heading  size="lg">Start Your Fitness Journey Today!</Heading>
-        <Text fontSize="md" color="gray.600" mt={2}>
-          Join WeightMate and take control of your health.
-        </Text>
+        <Heading color="green.400"  size="lg">Start Your Fitness Journey Today!</Heading>
       </Box>
     </Container>
   );

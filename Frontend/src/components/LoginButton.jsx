@@ -21,7 +21,7 @@ const LoginButton = () => {
         <Box>
             {console.log(user)}
             {user ? (
-                <Button colorPalette="yellow" variant="plain" onClick={handleLogout}>
+                <Button colorPalette="red" variant="plain" onClick={handleLogout}>
                     Logout
                 </Button>
             ) : (
