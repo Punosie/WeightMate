@@ -9,6 +9,7 @@ import App from "./App.jsx";
 import AuthListener from "./redux/AuthListener";
 import Tracker from "./pages/Tracker";
 import { Toaster } from "@/components/ui/toaster"
+import Stats from "./pages/Stats";
 
 createRoot(document.getElementById("root")).render(
     <StrictMode>
@@ -20,6 +21,7 @@ createRoot(document.getElementById("root")).render(
                         <Routes>
                             <Route path="/" element={<App />} />
                             <Route path="/tracker" element={<Tracker />} />
+                            <Route path="/stats" element={<Stats />} />
                         </Routes>
                     </BrowserRouter>
                 </Provider>
