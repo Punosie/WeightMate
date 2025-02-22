@@ -71,7 +71,7 @@ const Home = () => {
     </Text>
     <Box p={3} borderRadius="full" boxShadow="md" bg="bg.subtle">
       <Heading size="xl" color="pink.500">
-        <CountUp end={15000} duration={10} separator="," suffix="+ Members" />
+        <CountUp end={10000} duration={10} separator="," suffix="+ Members" />
       </Heading>
     </Box>
   </VStack>
