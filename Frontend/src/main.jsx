@@ -10,6 +10,7 @@ import AuthListener from "./redux/AuthListener";
 import Tracker from "./pages/Tracker";
 import { Toaster } from "@/components/ui/toaster"
 import Stats from "./pages/Stats";
+import UserForm from "./components/UserForm";
 
 createRoot(document.getElementById("root")).render(
     <StrictMode>
@@ -22,6 +23,7 @@ createRoot(document.getElementById("root")).render(
                             <Route path="/" element={<App />} />
                             <Route path="/tracker" element={<Tracker />} />
                             <Route path="/stats" element={<Stats />} />
+                            <Route path="/createUser" element={<UserForm />} />
                         </Routes>
                     </BrowserRouter>
                 </Provider>
