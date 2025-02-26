@@ -24,9 +24,10 @@ const createUser = async (uid, name, email, mobile, age, gender, height, current
 }
 
 
-const getUser = async (uid) => {
+const getUserInfo= async (uid) => {
     try {
-        const response = await axios.get(`${URL}api/user/${uid}`);
+        console.log("======>",uid);
+        const response = await axios.get(`${URL}api/user/get/${uid}`);
         return response.data;
     }catch(err){
         throw err.response?.data?.message || "Something went wrong";
@@ -35,4 +36,4 @@ const getUser = async (uid) => {
 
 
 
-export {createUser};
+export {createUser, getUserInfo};

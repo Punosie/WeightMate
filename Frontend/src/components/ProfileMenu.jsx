@@ -14,7 +14,6 @@ const ProfileMenu = ({ isOpen, onClose }) => {
     doSignInWithGoogle()
       .then(() => {
         onClose(); // Close menu on login
-        navigate("/createUser");
       })
       .catch((error) => console.error("Login error:", error));
   };

@@ -55,7 +55,7 @@ const UserForm = () => {
         } catch (err) {
             toaster.create({
                 title: "Error",
-                description: err.message || "Something went wrong!",
+                description: err || "Something went wrong!",
                 duration: 3000,
                 type: "error",
                 isClosable: true,
