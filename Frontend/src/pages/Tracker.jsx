@@ -41,7 +41,7 @@ const Tracker = () => {
       ) : (
         <VStack spacing={4} justify="center" align="center" flex={1}>
           <Text fontSize="lg" color="red.500">Please register to proceed.</Text>
-          <Button colorScheme="yellow" onClick={() => navigate("/createUser")}>
+          <Button variant={"outline"} onClick={() => navigate("/createUser")}>
             Register Now
           </Button>
         </VStack>
