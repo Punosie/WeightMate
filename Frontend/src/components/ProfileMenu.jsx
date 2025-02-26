@@ -14,7 +14,6 @@ const ProfileMenu = ({ isOpen, onClose }) => {
     doSignInWithGoogle()
       .then(() => {
         onClose(); // Close menu on login
-        navigate("/tracker");
       })
       .catch((error) => console.error("Login error:", error));
   };
@@ -65,6 +64,9 @@ const ProfileMenu = ({ isOpen, onClose }) => {
             Login
           </Text>
         )}
+        <Link to= "createUser">
+          <Text textWrap="nowrap" _hover={{ color: "yellow.400", cursor: "pointer" }}>Register</Text>
+        </Link>
         <Link to="/profile">
           <Text _hover={{ color: "yellow.400", cursor: "pointer" }}>Profile</Text>
         </Link>

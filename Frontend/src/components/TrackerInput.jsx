@@ -72,7 +72,7 @@ const TrackerInput = () => {
       console.error("Error submitting weight:", err);
       toaster.create({
         title: "Error",
-        description: err.response?.data?.message || "Something went wrong",
+        description: err || "Something went wrong",
         type: "error",
       });
     }
@@ -91,7 +91,7 @@ const TrackerInput = () => {
       console.error("Error deleting weight:", err);
       toaster.create({
         title: "Error",
-        description: err.response?.data?.message || "Something went wrong",
+        description: err || "Something went wrong",
         type: "error",
       });
     }

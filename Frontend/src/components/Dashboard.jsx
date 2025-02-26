@@ -1,5 +1,5 @@
-import { Box, Container, Stack, Text, Spinner, Center } from "@chakra-ui/react";
-import { WeightProgressChart } from "./Chart";
+import { Box, Container, Stack, Text, Spinner, Center, Heading } from "@chakra-ui/react";
+import { WeightProgressChart, GoalProgressPieChart } from "./Chart";
 import { useSelector } from "react-redux";
 import { useEffect, useState } from "react";
 import { getWeight } from "@/services/weightService";
@@ -49,8 +49,19 @@ const Dashboard = () => {
             <Stack spacing={5} m={5}>
                 <Stack direction={{ base: "column", md: "row" }} spacing={5}>
                     <Box flex={1} borderWidth="1px" borderRadius="md" p={5}>
+                        <Heading textAlign="center" p={2} > Weight Progress </Heading>
                         {weights.length > 0 ? (
                             <WeightProgressChart weights={weights} dates={dates} />
+                        ) : (
+                            <Text fontSize="lg" color="gray.500" textAlign="center">
+                                No weight data available. Start tracking your progress!
+                            </Text>
+                        )}
+                    </Box>
+                    <Box flex={1} borderWidth="1px" borderRadius="md" p={5}>
+                        <Heading textAlign="center" p={2} > Goal Progress </Heading>
+                        {weights.length > 0 ? (
+                            <GoalProgressPieChart weights={weights} />
                         ) : (
                             <Text fontSize="lg" color="gray.500" textAlign="center">
                                 No weight data available. Start tracking your progress!
