@@ -11,6 +11,7 @@ import Tracker from "./pages/Tracker";
 import { Toaster } from "@/components/ui/toaster"
 import Stats from "./pages/Stats";
 import UserForm from "./components/UserForm";
+import NotFoundPage from "./pages/NotFound";
 
 createRoot(document.getElementById("root")).render(
     <StrictMode>
@@ -24,6 +25,7 @@ createRoot(document.getElementById("root")).render(
                             <Route path="/tracker" element={<Tracker />} />
                             <Route path="/stats" element={<Stats />} />
                             <Route path="/createUser" element={<UserForm />} />
+                            <Route path="*" element={<NotFoundPage />} />
                         </Routes>
                     </BrowserRouter>
                 </Provider>

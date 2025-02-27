@@ -6,6 +6,7 @@ import { getUserInfo } from "@/services/userService";
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router";
 import { useSelector } from "react-redux";
+import { Helmet } from "react-helmet";
 
 const Tracker = () => {
   const navigate = useNavigate();
@@ -33,22 +34,28 @@ const Tracker = () => {
   if (userExists === null) return null; // Show nothing while checking
 
   return (
-    <Box h="100vh" display="flex" flexDirection="column" justifyContent="space-between">
-      <Navbar />
+    <>
+      <Helmet>
+        <title>Tracker</title>
+        <meta name="description" content="Track your weight and fitness progress seamlessly." />
+      </Helmet>
+      <Box h="100vh" display="flex" flexDirection="column" justifyContent="space-between">
+        <Navbar />
 
-      {userExists  || !user ? (
-        <TrackerInput />
-      ) : (
-        <VStack spacing={4} justify="center" align="center" flex={1}>
-          <Text fontSize="lg" color="red.500">Please register to proceed.</Text>
-          <Button variant={"outline"} onClick={() => navigate("/createUser")}>
-            Register Now
-          </Button>
-        </VStack>
-      )}
+        {userExists  || !user ? (
+          <TrackerInput />
+        ) : (
+          <VStack spacing={4} justify="center" align="center" flex={1}>
+            <Text fontSize="lg" color="red.500">Please register to proceed.</Text>
+            <Button variant={"outline"} onClick={() => navigate("/createUser")}>
+              Register Now
+            </Button>
+          </VStack>
+        )}
 
-      <Footer />
-    </Box>
+        <Footer />
+      </Box>
+      </>
   );
 };
 
